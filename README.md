@@ -107,11 +107,11 @@ cfg.SOLVER.IMS_PER_BATCH = 2
 cfg.SOLVER.BASE_LR = 0.0003
 cfg.SOLVER.MAX_ITER = (
     10000
-)  # 300 iterations seems good enough, but you can certainly train longer
+)
 cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = (
     128
-)  # faster, and good enough for this toy dataset
-cfg.MODEL.ROI_HEADS.NUM_CLASSES = 20  # 3 classes (data, fig, hazelnut)
+)
+cfg.MODEL.ROI_HEADS.NUM_CLASSES = 20
 
 os.makedirs(cfg.OUTPUT_DIR, exist_ok=True)
 trainer = DefaultTrainer(cfg)
@@ -140,8 +140,8 @@ testcfg.DATALOADER.NUM_WORKERS = 2
 testcfg.SOLVER.IMS_PER_BATCH = 2
 testcfg.SOLVER.BASE_LR = 0.001
 testcfg.SOLVER.MAX_ITER = 500
-testcfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 128   # faster, and good enough for this toy dataset
-testcfg.MODEL.ROI_HEADS.NUM_CLASSES = 20  # only has one class (ballon)
+testcfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 128
+testcfg.MODEL.ROI_HEADS.NUM_CLASSES = 20 
 testcfg.MODEL.WEIGHTS = os.path.join(testcfg.OUTPUT_DIR, "model_final.pth")
 testcfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.4
 ```
@@ -203,12 +203,34 @@ for imgid in coco_test.imgs:
         pred['segmentation'] = binary_mask_to_rle(binary_mask)
         pred['score'] = float(outputs["instances"].scores[i_instance])
         coco_output.append(pred)
-with open('/content/drive/MyDrive/NCTU-1091DeepLearning/HW3/dataset/309505013.json', "w") as f:
+with open('Your/output/file/.json', "w") as f:
     json.dump(coco_output, f)
 ```
 
 ## Results
+Images:
+![result1]()
+![result2]()
+![result3]()
+
+Json file:
+```
+{
+"image_id": 914, 
+"category_id": 3, 
+"segmentation": 
+    {
+"size": [333, 500],
+"counts":"dZ[13R::I7K7J3M3N101N1O2O0O2N1N3N2N1100O10000O10O1O010O1O1O1O1O1O1O010O010O010O01O01O010O100000000000O100O10001O0O02OO10O10O0100O10O01000000O01000O010O010UIaNg4^1XKQOZ4P1dKRO\\4n0bKTO^4l0`KUOa4k0]KWOb4j0\\KXOd4h0ZKXOh4h0TKZOn4f0jJAW5?gJA[5?cJA^5`0_JBb5=]JCe5?WJAk5c0oI]OR6h0gIXO\\6[2101N101N100O2M2O1N2O1O2N1O1N2N2O1N2O1O2N1O001O100O00100O010O1N1O100O101O0O110O0001O0001O000O101N1O2N1N3M3N1O2O1O001N1O1N3M2O3L3M3M4M2N2N2N3M2N3M2N3M3K6JQdP2"
+    }, 
+"score": 0.9939279556274414
+}
+```
 
 ## Reference
 
 <a name="[1]"> [1] [Detectron2](https://github.com/facebookresearch/detectron2)</a>
+
+[2] [How to train Detectron2 with Custom COCO Datasets](https://www.dlology.com/blog/how-to-train-detectron2-with-custom-coco-datasets/)
+
+[3] [绘制COCO数据集结果](https://www.w3xue.com/exp/article/201811/8175.html)
