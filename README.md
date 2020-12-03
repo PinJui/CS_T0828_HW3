@@ -13,7 +13,7 @@ This homework requires to train a model to perform instance segmentation on the 
 
 The given dataset has 1349 training images with 20 common object classes and 100 test image for inference.
 
-Check some examples in [train]() and [test]().
+Check some examples in [train](https://github.com/PinJui/CS_T0828_HW3/tree/main/train_images) and [test](https://github.com/PinJui/CS_T0828_HW3/tree/main/test_images).
 
 The desired output is a list of dict, which length of the list is thte number of detected instances.
 
@@ -126,6 +126,8 @@ And to resume the training by setting the resume parameter to `True`
 The default OUTPUT_DIR is `./output`
 
 You should see the training begins.
+
+> I trained 100000 iterations and get mAP = 0.45770 on test images.
 
 ## Step 4:Inference
 
