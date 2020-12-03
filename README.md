@@ -181,8 +181,6 @@ for imgid in coco_test.imgs:
     break
   counter +=1
 ```
-Output:
-![result_img]()
 
 ## Step 5: Generate output file:
 ```python
@@ -209,9 +207,12 @@ with open('Your/output/file/.json', "w") as f:
 
 ## Results
 Images:
-![result1]()
-![result2]()
-![result3]()
+
+![result1](https://github.com/PinJui/CS_T0828_HW3/blob/main/assets/hw3result.png)
+
+![result2](https://github.com/PinJui/CS_T0828_HW3/blob/main/assets/hw3result2.png)
+
+![result3](https://github.com/PinJui/CS_T0828_HW3/blob/main/assets/hwresult3.png)
 
 Json file:
 ```
