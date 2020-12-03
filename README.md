@@ -58,7 +58,7 @@ Register your dataset by running the commands below
 
 ```python
 from detectron2.data.datasets import register_coco_instances
-register_coco_instances("tiny_voc", {}, "/Your/Train/ImageFolder/Path")
+register_coco_instances("tiny_voc", {}, "Your/train.json/file/path", "/Your/Train/ImageFolder/Path")
 ```
 and create a metadeta to tell the dataset info by commands
 
@@ -235,3 +235,5 @@ Json file:
 [2] [How to train Detectron2 with Custom COCO Datasets](https://www.dlology.com/blog/how-to-train-detectron2-with-custom-coco-datasets/)
 
 [3] [绘制COCO数据集结果](https://www.w3xue.com/exp/article/201811/8175.html)
+
+[4] [NCTU-VRusingDL](https://github.com/PeiChunChang/NCTU-VRusingDL/tree/master/HW4-instance-segmentation)
